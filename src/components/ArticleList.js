@@ -1,18 +1,21 @@
 import React from "react";
-import posts from "..data/blog";
+import Article from "./Article"
 
-function ArticleList(post) {
-    const getPosts = post.forEach(()=>{
-        return(
-        <Article 
-        key={posts.id}
-        />
-        );
-    })
+function ArticleList({posts}) {
+  const getPosts = posts.map((post) => {
+  
+    return (
+    <Article 
+    key={post.id}
+    title={post.title}
+    date={post.date}
+    preview={post.preview}
+    />);
+  });
 
-    return(
-        <main>
-            {getPosts}
-        </main>
-    );
+  return ( 
+  <main>{ getPosts }</main>
+  );
 }
+
+export default ArticleList;
